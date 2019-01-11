@@ -139,6 +139,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
+          <Name></Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -189,41 +190,9 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>F:\宸潂\STM32 F1\璋冭瘯宸ョ▼ 闂淇\SYSTEM\delay\delay.c</Filename>
+          <Filename>F:\宸潂\GitHub\WK_JZQ_V2.3\SYSTEM\delay\delay.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\UCOSII_1\../SYSTEM/delay/delay.c\85</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>134</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134273154</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>F:\宸潂\STM32 F1\璋冭瘯宸ョ▼ 闂淇\MY_CORE\my_w5500.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\UCOSII_1\../MY_CORE/my_w5500.c\134</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>141</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134273162</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>F:\宸潂\STM32 F1\璋冭瘯宸ョ▼ 闂淇\MY_CORE\my_w5500.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\UCOSII_1\../MY_CORE/my_w5500.c\141</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -242,7 +211,7 @@
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>10</SubType>
-          <ItemText>ALL_PARAMETERS</ItemText>
+          <ItemText>rf_looptack</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>

@@ -48,7 +48,7 @@ void my_rf_loop (void * t)
 //	RF_SetChannel(10); //暂时不用设置信道2018.10.12
 
 //	EN_CONFIG[0]=0;
-	Save_Config();
+//	Save_Config();
 
 
 	Load_Config();
