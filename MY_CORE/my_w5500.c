@@ -418,12 +418,14 @@ void json_close (cJSON *root)
 
 void json_mode (cJSON *root)
 {
-	if (strcmp("hand",cJSON_GetObjectItem(root, "mode")->valuestring)==0)
+	
+	cJSON *js_controldata = cJSON_GetObjectItem(root, "data");
+	if (strcmp("hand",cJSON_GetObjectItem(js_controldata, "mode")->valuestring)==0)
 	{
 		Lcd_SetHandstate(1);
 		json_return (Get_MyAddr(),cJSON_GetObjectItem(root, "cmdNum")->valuestring,"0");
 	}
-	else if (strcmp("auto",cJSON_GetObjectItem(root, "mode")->valuestring)==0)
+	else if (strcmp("auto",cJSON_GetObjectItem(js_controldata, "mode")->valuestring)==0)
 	{
 		Lcd_SetHandstate(0);
 		json_return (Get_MyAddr(),cJSON_GetObjectItem(root, "cmdNum")->valuestring,"0");
