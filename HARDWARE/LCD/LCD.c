@@ -153,7 +153,9 @@ void LCD_Receive_Data(u8 *buf,u16 *len)
 					//获取是否手动的状态
 u16 Lcd_GetHandstate (void)
 {
-	return HAND_STATE;
+	u8 ret;
+	ret=HAND_STATE;//防止被优化掉
+	return ret;
 }
 
 

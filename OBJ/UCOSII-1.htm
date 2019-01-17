@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\UCOSII-1.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\UCOSII-1.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Jan 16 17:33:30 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Thu Jan 17 15:57:51 2019
 <BR><P>
 <H3>Maximum Stack Usage =        448 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1569,8 +1569,9 @@ Global Symbols
 <LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_timetosleep
 </UL>
 
-<P><STRONG><a name="[1a5]"></a>Lcd_GetHandstate</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, lcd.o(i.Lcd_GetHandstate))
+<P><STRONG><a name="[1a5]"></a>Lcd_GetHandstate</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, lcd.o(i.Lcd_GetHandstate))
 <BR><BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;my_autocontrol
+<LI><a href="#[20a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_json_kz
 <LI><a href="#[209]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_json_cj
 <LI><a href="#[1b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;json_startup
 <LI><a href="#[1b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;json_startdown
@@ -3298,7 +3299,7 @@ Global Symbols
 <LI><a href="#[211]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_json_warn
 </UL>
 
-<P><STRONG><a name="[1a8]"></a>json_mode</STRONG> (Thumb, 154 bytes, Stack size 24 bytes, my_w5500.o(i.json_mode))
+<P><STRONG><a name="[1a8]"></a>json_mode</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, my_w5500.o(i.json_mode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
 <LI>Call Chain = json_mode &rArr; json_return &rArr; cJSON_PrintUnformatted &rArr; print_value &rArr; print_object &rArr;  print_value (Cycle)
 </UL>
@@ -3335,7 +3336,7 @@ Global Symbols
 <LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recv_json
 </UL>
 
-<P><STRONG><a name="[1ad]"></a>json_setting</STRONG> (Thumb, 158 bytes, Stack size 40 bytes, my_w5500.o(i.json_setting))
+<P><STRONG><a name="[1ad]"></a>json_setting</STRONG> (Thumb, 232 bytes, Stack size 40 bytes, my_w5500.o(i.json_setting))
 <BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
 <LI>Call Chain = json_setting &rArr; json_return &rArr; cJSON_PrintUnformatted &rArr; print_value &rArr; print_object &rArr;  print_value (Cycle)
 </UL>
@@ -3344,6 +3345,7 @@ Global Symbols
 <LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;json_return
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_LCD
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cJSON_GetObjectItem
+<LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;str2num
 </UL>
 <BR>[Called By]<UL><LI><a href="#[207]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;recv_json
 </UL>
@@ -4223,11 +4225,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[208]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_json
 </UL>
 
-<P><STRONG><a name="[20a]"></a>send_json_kz</STRONG> (Thumb, 318 bytes, Stack size 40 bytes, my_w5500.o(i.send_json_kz))
+<P><STRONG><a name="[20a]"></a>send_json_kz</STRONG> (Thumb, 362 bytes, Stack size 40 bytes, my_w5500.o(i.send_json_kz))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320 + Unknown Stack Size
 <LI>Call Chain = send_json_kz &rArr; cJSON_PrintUnformatted &rArr; print_value &rArr; print_object &rArr;  print_value (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myfree
+<BR>[Calls]<UL><LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Lcd_GetHandstate
+<LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;myfree
 <LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_MyAddr
 <LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;server_send_data
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;json_get_devicname
@@ -4416,7 +4419,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[18e]"></a>str2num</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, my_debug.o(i.str2num))
-<BR><BR>[Called By]<UL><LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_copydata
+<BR><BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;json_setting
+<LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dbg_copydata
 </UL>
 
 <P><STRONG><a name="[190]"></a>tcp_close</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, enternet.o(i.tcp_close))
