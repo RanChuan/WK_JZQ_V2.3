@@ -346,6 +346,11 @@ void KEY_IRQHandler(void)   //
 
 }
 
+
+
+void RunTime_IRQHandler (void);
+
+
 void TIM4_IRQHandler(void)   //TIM4中断
 {
 	if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET)  //检查TIM3更新中断发生与否
@@ -353,11 +358,40 @@ void TIM4_IRQHandler(void)   //TIM4中断
 		TIM_ClearITPendingBit(TIM4, TIM_IT_Update  );  //清除TIMx更新中断标志 
 		KEY_IRQHandler( );   //ojjm中断
 //		IOT_Hander();					//iot云定时器中断
-
+		RunTime_IRQHandler();
 	}
 }
+
+
+
+
+
+
+
+
 #endif 
 
+
+
+				//系统运行时间，单位秒
+static u32 SYS_RUNTIME=0;
+
+void RunTime_IRQHandler (void)
+{
+	static u8 _10ms=0;
+	_10ms++;
+	if (_10ms>100)
+	{
+		_10ms=0;
+		SYS_RUNTIME++;
+	}
+}
+
+			//获取系统运行时间
+u32 getSysRunTime(void)
+{
+	return SYS_RUNTIME;
+}
 
 
 

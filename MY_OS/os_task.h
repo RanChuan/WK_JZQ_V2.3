@@ -21,6 +21,7 @@ typedef struct
 	INT32U MYDelay_ms;//本次想延时的时间，单位，ms，
 	INT32U MYWork;//我的工作，不为0时系统调度这个任务
 	INT32U Pend;	//知否挂起
+	INT32U LastTime;		//最后一次调度的时间
 }OS_TCB,*pOS_TCB;
 
  
@@ -88,7 +89,7 @@ void os_task_init (void);
 //唤醒任务，通过优先级确定,这个函数中断调用可以唤醒任务
 void TaskIntSendMsg(u8 pro,INT32U msg);
 			//效果同上，任务调用
-void TaskSendMsg(u8 pro,INT32U msg);
+u8 TaskSendMsg(u8 pro,INT32U msg);
 
 void TaskMsgZero(void);
 

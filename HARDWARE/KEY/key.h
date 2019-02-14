@@ -19,7 +19,8 @@ void TIME4_Init(void);
 u8 Get_Key(u8 keynum);
 
 
-
+			//获取系统运行时间
+u32 getSysRunTime(void);
 
 
 

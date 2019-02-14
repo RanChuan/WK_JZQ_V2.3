@@ -91,6 +91,10 @@ void dbg_Interpreter(void)
 	{
 		dbg_mqtt(recvbuff+8+6); 
 	}
+	else if (samestr((u8*)"task ",recvbuff+8))
+	{
+		dbg_task(recvbuff+8+5); 
+	}
 	else
 	{
 		dbg_err(1);
@@ -190,6 +194,9 @@ void dbg_info (void)
 		memsize/1024,memsize*mem_perused()/100/1024,memsize*(100-mem_perused())/100/1024,mem_perused());
 	udp_send(1,DBG_IP,DBG_PORT,(u8*)txtbuff,strlen(txtbuff));
 	
+	sprintf(txtbuff,"集中器已运行 %d 秒\r\n",getSysRunTime());
+	udp_send(1,DBG_IP,DBG_PORT,(u8*)txtbuff,strlen(txtbuff));
+
 	sprintf(txtbuff,"程序位置：-- %#X -- \r\n",SCB->VTOR);
 	udp_send(1,DBG_IP,DBG_PORT,(u8*)txtbuff,strlen(txtbuff));
 
@@ -325,6 +332,9 @@ void dbg_help(void)
 	udp_send(1,DBG_IP,DBG_PORT,(u8*)ptxt,strlen((const char *)ptxt));
 
 	ptxt="\t输入\"getip [域名]\"获取域名对应的IP地址\r\n";
+	udp_send(1,DBG_IP,DBG_PORT,(u8*)ptxt,strlen((const char *)ptxt));
+
+	ptxt="\t输入\"task getidle\"查询运行异常的任务\r\n";
 	udp_send(1,DBG_IP,DBG_PORT,(u8*)ptxt,strlen((const char *)ptxt));
 	
 	myfree(txtbuff);
@@ -474,6 +484,29 @@ void dbg_mqtt(u8 *buff)
 	udp_send(1,DBG_IP,DBG_PORT,(u8*)txt,strlen(txt));
 	myfree(txt);
 }
+
+
+
+
+
+void dbg_task (u8 *buff)
+{
+	u32 lasttime=0;u32 dietimes=0;
+	char *txtbuff=mymalloc(512);
+	if ( samestr((u8*)"getidle",buff))
+	{
+		sprintf(txtbuff,"运行异常的任务：%#X\r\n",getIdleTask());
+		udp_send(1,DBG_IP,DBG_PORT,(u8*)txtbuff,strlen(txtbuff));
+		for (u8 i=0;i<TASK_MAX_NUM;i++)
+		{
+			getKilledTask(&lasttime,&dietimes,i);
+			sprintf(txtbuff,"优先级为 %d 的任务死亡了 %d 次，最后一次死亡时间是：%d\r\n",i,dietimes,lasttime);
+			udp_send(1,DBG_IP,DBG_PORT,(u8*)txtbuff,strlen(txtbuff));
+		}
+	}
+	myfree(txtbuff);
+}
+
 
 
 

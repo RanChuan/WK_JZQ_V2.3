@@ -43,6 +43,7 @@
 #include "my_iot.h"
 #include "my_lcd_new.h"
 #include "my_rf.h"
+#include "my_idle.h"
 
 #include "MQTTPacket.h"
 

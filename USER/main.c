@@ -55,6 +55,7 @@ int main(void)
 	CreateTask (my_autocontrol, 0, &my_autotack[127],			8)	;		
 	CreateTask (my_cfg, 				0, &my_cfgtack[63],			9)	;		
 //	CreateTask (my_iot, 				0, &my_iottack[127],		 10)	;		
+	CreateTask (idle_task, 				0, &my_iottack[127],		 31)	;		
 	OSStart ( );
 
 } 
