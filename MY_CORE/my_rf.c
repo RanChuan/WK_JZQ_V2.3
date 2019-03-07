@@ -743,7 +743,7 @@ void my_rf_deal (void * t)
 						{
 							send[6]=1;//Éý
 						}
-						else if ((EN_CONFIG[i*2+1]&DEVICEUP)==DEVICEUP)
+						else if ((EN_CONFIG[i*2+1]&DEVICEDOWN)==DEVICEDOWN)
 						{
 							send[6]=2;//½µ
 						}
